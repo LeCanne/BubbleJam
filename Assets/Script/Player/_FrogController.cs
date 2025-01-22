@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,6 +11,7 @@ public class _FrogController : MonoBehaviour
     public LevelMaster levelMaster; 
 
     Rigidbody2D rb;
+    Collider2D mainCollision;
 
     InputAction move;
 
@@ -19,6 +21,7 @@ public class _FrogController : MonoBehaviour
     {
         move = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
+        mainCollision = GetComponent<Collider2D>();
     }
 
  
@@ -52,8 +55,11 @@ public class _FrogController : MonoBehaviour
     {
         dead = true;
         rb.linearVelocity = Vector2.zero;
-        SceneManager.Instance.userInterfaceManager.Die();
-        levelMaster.RestartLevel();
+        rb.gravityScale = 10;
+        mainCollision.enabled = false;
+        StartCoroutine(DieAnim());
+
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -65,4 +71,17 @@ public class _FrogController : MonoBehaviour
         }
     }
 
+
+    IEnumerator DieAnim()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.Instance.userInterfaceManager.Die();
+        yield return new WaitForSeconds(0.5f);
+        rb.gravityScale = 0;
+        rb.linearVelocity = Vector2.zero;
+        levelMaster.RestartLevel();
+        mainCollision.enabled = true;
+        dead = false;
+        yield return null;
+    }
 }
