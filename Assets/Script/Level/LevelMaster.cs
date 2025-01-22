@@ -6,6 +6,7 @@ public abstract class LevelMaster : MonoBehaviour
     protected _FrogController frogController;
     public LevelMaster nextLevel;
     protected bool StarCollected;
+    protected bool finishedLevel;
     public GameObject Bonus;
     public GameObject LevelCamera;
     public Transform LevelStart, LevelEnd;
@@ -21,15 +22,22 @@ public abstract class LevelMaster : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-
+        if(finishedLevel == true)
+        {
+            LevelEndProcess();
+        }
     }
 
+    public virtual void LevelEndProcess()
+    {
+        frogController.transform.position = Vector2.Lerp(frogController.transform.position, LevelEnd.transform.position, Time.deltaTime * 3);
+    }
     public virtual void FinishLevel()
     {
        
-        SceneManager.Instance.userInterfaceManager.Win();
+        
         if(nextLevel != null)
         {
             StartCoroutine(NextLevel());
@@ -59,13 +67,14 @@ public abstract class LevelMaster : MonoBehaviour
     IEnumerator NextLevel()
     {
         frogController.dead = true;
-        
-        
-        
+        finishedLevel = true;
         frogController.rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(1f);
+        SceneManager.Instance.userInterfaceManager.Win();
         yield return new WaitForSeconds(0.5f);
         nextLevel.StartLevel();
         frogController.dead = false;
+        finishedLevel = false;
         LevelCamera.SetActive(false);
         gameObject.SetActive(false);
         yield return null;

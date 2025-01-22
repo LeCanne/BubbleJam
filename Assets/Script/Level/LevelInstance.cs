@@ -9,10 +9,7 @@ public class LevelInstance : LevelMaster
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 
     
 }
