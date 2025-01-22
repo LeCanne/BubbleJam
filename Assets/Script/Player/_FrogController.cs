@@ -18,11 +18,14 @@ public class _FrogController : MonoBehaviour
 
     Vector2 desiredVelocity;
 
+    AudioSource bubble_fall;
+
     void Start()
     {
         move = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
         mainCollision = GetComponent<Collider2D>();
+        bubble_fall = GetComponent<AudioSource>();
     }
 
  
@@ -54,6 +57,7 @@ public class _FrogController : MonoBehaviour
 
     void Die()
     {
+        bubble_fall.Play();
         dead = true;
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 10;
