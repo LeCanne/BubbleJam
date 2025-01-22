@@ -70,6 +70,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 534547491470861187, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ea63343b59aecb4aaaed062c6f70d58, type: 2}
     - target: {fileID: 1887281071273581063, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.9423
@@ -81,6 +85,18 @@ PrefabInstance:
     - target: {fileID: 1931553230113250903, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
       propertyPath: levelName
       value: 1-2 Bog's Beginning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177161086130380305, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1319165
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177161086130380305, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.4654
+      objectReference: {fileID: 0}
+    - target: {fileID: 2177161086130380305, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -11.92
       objectReference: {fileID: 0}
     - target: {fileID: 3324347608921574855, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
       propertyPath: m_TagString
@@ -126,6 +142,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6291505228598866630, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291505228598866630, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6049605792901559095, guid: 7c963adf53564a149a293f4a4de548be, type: 3}
+    - target: {fileID: 6291505228598866630, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6291505228598866630, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 8ea63343b59aecb4aaaed062c6f70d58, type: 2}
     - target: {fileID: 7279604942327902594, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
       propertyPath: m_Name
       value: LEVEL ONE Variant
@@ -151,7 +183,9 @@ PrefabInstance:
       value: -9.12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3324347608921574855, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
+    - {fileID: 115514393873281606, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5860659339723720110, guid: a1113b46a03782d44a87075859cfe32c, type: 3}
       insertIndex: -1

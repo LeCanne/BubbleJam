@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public abstract class LevelMaster : MonoBehaviour
@@ -27,14 +28,16 @@ public abstract class LevelMaster : MonoBehaviour
 
     public virtual void FinishLevel()
     {
-        LevelCamera.SetActive(false);
+       
+        SceneManager.Instance.userInterfaceManager.Win();
         if(nextLevel != null)
         {
-            nextLevel.StartLevel();
+            StartCoroutine(NextLevel());
+             
             
         }
         
-        gameObject.SetActive(false);
+       
     }
 
     public virtual void StartLevel()
@@ -51,5 +54,21 @@ public abstract class LevelMaster : MonoBehaviour
     public virtual void RestartLevel()
     {
         frogController.transform.position = LevelStart.position;
+    }
+
+    IEnumerator NextLevel()
+    {
+        frogController.dead = true;
+        
+        
+        
+        frogController.rb.linearVelocity = Vector2.zero;
+        yield return new WaitForSeconds(0.5f);
+        nextLevel.StartLevel();
+        frogController.dead = false;
+        LevelCamera.SetActive(false);
+        gameObject.SetActive(false);
+        yield return null;
+       
     }
 }

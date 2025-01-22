@@ -19,4 +19,9 @@ public class UserInterfaceManager : MonoBehaviour
     {
         deathAnim.Play("DeathTransition");
     }
+
+    public void Win()
+    {
+        deathAnim.Play("Win");
+    }
 }
