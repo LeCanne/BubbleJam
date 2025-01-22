@@ -31,6 +31,7 @@ public abstract class LevelMaster : MonoBehaviour
         if(nextLevel != null)
         {
             nextLevel.StartLevel();
+            
         }
         
         gameObject.SetActive(false);
@@ -39,9 +40,15 @@ public abstract class LevelMaster : MonoBehaviour
     public virtual void StartLevel()
     {
         frogController = SceneManager.Instance.player;
+        frogController.levelMaster = this;
         gameObject.SetActive(true);
         frogController.transform.position = LevelStart.position;
         LevelCamera.SetActive(true);    
-        frogController.transform.position = LevelStart.transform.position;
+       
+    }
+
+    public virtual void RestartLevel()
+    {
+        frogController.transform.position = LevelStart.position;
     }
 }

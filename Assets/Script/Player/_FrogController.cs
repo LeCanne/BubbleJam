@@ -7,6 +7,8 @@ public class _FrogController : MonoBehaviour
     public float maxSpeed;
     public bool dead;
 
+    public LevelMaster levelMaster; 
+
     Rigidbody2D rb;
 
     InputAction move;
@@ -39,10 +41,28 @@ public class _FrogController : MonoBehaviour
 
     void Movement()
     {
+        if(dead) return;
+        
         rb.linearVelocity += desiredVelocity * speed * Time.fixedDeltaTime;
 
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
     }
 
+    void Die()
+    {
+        dead = true;
+        rb.linearVelocity = Vector2.zero;
+        SceneManager.Instance.userInterfaceManager.Die();
+        levelMaster.RestartLevel();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "dangerTag")
+        {
+            Die();
+            
+        }
+    }
 
 }

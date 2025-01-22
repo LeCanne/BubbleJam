@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - playerTag
+  - dangerTag
   layers:
   - Default
   - TransparentFX
