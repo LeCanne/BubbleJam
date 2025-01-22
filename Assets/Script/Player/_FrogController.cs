@@ -7,10 +7,11 @@ public class _FrogController : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public bool dead;
+    public GameObject bubble;
 
     public LevelMaster levelMaster; 
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     Collider2D mainCollision;
 
     InputAction move;
@@ -56,6 +57,7 @@ public class _FrogController : MonoBehaviour
         dead = true;
         rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 10;
+        bubble.SetActive(false);
         mainCollision.enabled = false;
         StartCoroutine(DieAnim());
 
@@ -75,10 +77,12 @@ public class _FrogController : MonoBehaviour
     IEnumerator DieAnim()
     {
         yield return new WaitForSeconds(0.5f);
+        
         SceneManager.Instance.userInterfaceManager.Die();
         yield return new WaitForSeconds(0.5f);
         rb.gravityScale = 0;
         rb.linearVelocity = Vector2.zero;
+        bubble.SetActive(true);
         levelMaster.RestartLevel();
         mainCollision.enabled = true;
         dead = false;

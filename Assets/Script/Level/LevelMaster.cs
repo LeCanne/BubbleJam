@@ -41,6 +41,7 @@ public abstract class LevelMaster : MonoBehaviour
     {
         frogController = SceneManager.Instance.player;
         frogController.levelMaster = this;
+        frogController.rb.linearVelocity = Vector2.zero;
         gameObject.SetActive(true);
         frogController.transform.position = LevelStart.position;
         LevelCamera.SetActive(true);    
