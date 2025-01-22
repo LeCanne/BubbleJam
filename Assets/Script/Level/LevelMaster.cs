@@ -7,7 +7,7 @@ public abstract class LevelMaster : MonoBehaviour
     public LevelMaster nextLevel;
     protected bool StarCollected;
     protected bool finishedLevel;
-    public GameObject Bonus;
+    public Collectable_recup Bonus;
     public GameObject LevelCamera;
     public Transform LevelStart, LevelEnd;
     public string levelName;
@@ -41,7 +41,7 @@ public abstract class LevelMaster : MonoBehaviour
         if(nextLevel != null)
         {
             StartCoroutine(NextLevel());
-             
+            Bonus.collected = false;
             
         }
         
@@ -62,6 +62,13 @@ public abstract class LevelMaster : MonoBehaviour
     public virtual void RestartLevel()
     {
         frogController.transform.position = LevelStart.position;
+       
+
+    }
+
+    public virtual void ResetCollectable()
+    {
+        Bonus.collected = false;
     }
 
     IEnumerator NextLevel()

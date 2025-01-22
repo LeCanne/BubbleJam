@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class _FrogController : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class _FrogController : MonoBehaviour
     public float maxSpeed;
     public bool dead;
     public GameObject bubble;
+    public GameObject blow;
+    private Animator animator;
 
     public LevelMaster levelMaster; 
 
@@ -26,17 +29,20 @@ public class _FrogController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mainCollision = GetComponent<Collider2D>();
         bubble_fall = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
  
     void Update()
     {
         MovementInput();
+        bubble.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
     void MovementInput()
     {
         desiredVelocity = move.ReadValue<Vector2>();
+       
     }
 
     private void FixedUpdate()
@@ -49,7 +55,22 @@ public class _FrogController : MonoBehaviour
     void Movement()
     {
         if(dead) return;
-        
+        if(desiredVelocity != Vector2.zero)
+        {
+            blow.SetActive(true);
+            animator.SetBool("moving", true);
+            
+            float angle = Mathf.Atan2(desiredVelocity.y, desiredVelocity.x) * Mathf.Rad2Deg - 90;
+            transform.rotation = Quaternion.AngleAxis(angle,Vector3.forward );
+
+        }
+        else
+        {
+            blow.SetActive(false);
+            animator.SetBool("moving", false);
+        }
+
+
         rb.linearVelocity += desiredVelocity * speed * Time.fixedDeltaTime;
 
         rb.linearVelocity = Vector2.ClampMagnitude(rb.linearVelocity, maxSpeed);
@@ -80,6 +101,7 @@ public class _FrogController : MonoBehaviour
 
     IEnumerator DieAnim()
     {
+        levelMaster.ResetCollectable();
         yield return new WaitForSeconds(0.5f);
         
         SceneManager.Instance.userInterfaceManager.Die();

@@ -7,11 +7,13 @@ public class Collectable_recup : MonoBehaviour
     private GameObject player;
     AudioSource bubble_get;
     public bool sound_played;
+    public Vector3 origin;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bubble_get = GetComponent<AudioSource>();
         sound_played = true;
+        origin = transform.position;
     }
 
     // Update is called once per frame
@@ -21,6 +23,10 @@ public class Collectable_recup : MonoBehaviour
         {
             transform.position = Vector3.Lerp(transform.position, player.transform.position, Time.deltaTime * 2);
             
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, origin, Time.deltaTime * 10);
         }
         
     }
