@@ -520,7 +520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 292c98169db08d0448557f3938851f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToStart: {fileID: 1500563551}
+  levelToStart: {fileID: 1872850766}
 --- !u!1 &791761400
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1546,10 @@ PrefabInstance:
     - target: {fileID: 4096299316247669843, guid: a0809cd326b636b4c9da6ea3dc5a5503, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305628879569581994, guid: a0809cd326b636b4c9da6ea3dc5a5503, type: 3}
+      propertyPath: levelName
+      value: '1-4: Spike Spiral'
       objectReference: {fileID: 0}
     - target: {fileID: 8305628879569581994, guid: a0809cd326b636b4c9da6ea3dc5a5503, type: 3}
       propertyPath: nextLevel

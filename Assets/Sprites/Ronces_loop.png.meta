@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: efca22c0e85276b46853d4638917bac4
+guid: d3792af408fe70c4a93b938053180d94
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3633676053475147022
-    second: Tree_Cadre_0
+      213: -5385424585901849127
+    second: Ronces_loop_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tree_Cadre_0
+      name: Ronces_loop_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 965
-        height: 1080
+        x: 486
+        y: 137
+        width: 782
+        height: 831
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2f245c3a1e6929dc0800000000000000
-      internalID: -3633676053475147022
+      spriteID: 9d54aa05fd02345b0800000000000000
+      internalID: -5385424585901849127
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Tree_Cadre_0: -3633676053475147022
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
