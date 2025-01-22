@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c4aeb8d62bf45a84fa7fe0f6c38fb1aa
+guid: 58358febb96b11b4597c868913e58bef
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8760240209405138439
-    second: Frog_Blowing_0
+      213: 839753137477940978
+    second: BlowEffect_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frog_Blowing_0
+      name: BlowEffect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 101
-        height: 111
+        width: 58
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 706dfa48e00a29970800000000000000
-      internalID: 8760240209405138439
+      spriteID: 2f67462870767ab00800000000000000
+      internalID: 839753137477940978
       vertices: []
       indices: 
       edges: []
