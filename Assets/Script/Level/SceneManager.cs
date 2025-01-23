@@ -8,6 +8,7 @@ using UnityEngine;
         // to access throughout your scene
         public _FrogController player;
         public UserInterfaceManager userInterfaceManager;
+        public int Score;
 
         public static SceneManager Instance { get; private set; } // static singleton
         void Awake()

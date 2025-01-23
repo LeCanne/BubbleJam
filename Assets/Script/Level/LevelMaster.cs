@@ -41,7 +41,7 @@ public abstract class LevelMaster : MonoBehaviour
         if(nextLevel != null)
         {
             StartCoroutine(NextLevel());
-            Bonus.collected = false;
+            
             
         }
         
@@ -80,6 +80,8 @@ public abstract class LevelMaster : MonoBehaviour
         SceneManager.Instance.userInterfaceManager.Win();
         yield return new WaitForSeconds(0.5f);
         nextLevel.StartLevel();
+        if(Bonus.collected = false)
+        Bonus.collected = false;
         frogController.dead = false;
         finishedLevel = false;
         LevelCamera.SetActive(false);
