@@ -80,7 +80,10 @@ public abstract class LevelMaster : MonoBehaviour
         SceneManager.Instance.userInterfaceManager.Win();
         yield return new WaitForSeconds(0.5f);
         nextLevel.StartLevel();
-        if(Bonus.collected = false)
+        if(Bonus.collected == true)
+        {
+            SceneManager.Instance.Score += 1;
+        }
         Bonus.collected = false;
         frogController.dead = false;
         finishedLevel = false;
