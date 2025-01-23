@@ -22,7 +22,7 @@ public abstract class LevelMaster : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public virtual void Update()
     {
         if(finishedLevel == true)
         {
@@ -71,7 +71,7 @@ public abstract class LevelMaster : MonoBehaviour
         Bonus.collected = false;
     }
 
-    IEnumerator NextLevel()
+    public virtual IEnumerator NextLevel()
     {
         frogController.dead = true;
         finishedLevel = true;
